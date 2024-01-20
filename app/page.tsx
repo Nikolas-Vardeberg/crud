@@ -1,9 +1,10 @@
+import TopicList from '@/components/TopicList'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <TopicList />
     </div>
   )
 }
