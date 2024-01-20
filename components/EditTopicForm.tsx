@@ -19,4 +19,4 @@ const EditTopicForm = () => {
   )
 }
 
-export default EditTopicForm
+export default EditTopicForm;
