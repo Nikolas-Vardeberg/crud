@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/api/topics/route.js", "app/api/topics/[id]/route.js", "components/TopicList.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/api/topics/route.js", "app/api/topics/[id]/route.js", "components/TopicList.jsx", "app/addTopic/page.tsx"],
   "exclude": ["node_modules"]
 }

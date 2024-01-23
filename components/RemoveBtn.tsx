@@ -1,11 +1,36 @@
+"use client"
 
-
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { HiOutlineTrash } from 'react-icons/hi'
 
-const RemoveBtn = () => {
+const RemoveBtn: React.FC<{ id: string }> = ({ id }) => {
+
+  const ruter = useRouter();
+
+  const removeTopic = async () => {
+    const confirmed = window.confirm("Are you sure you want to delete this topic?");
+
+    if (confirmed) {
+      try {
+        const response = await fetch(`http://localhost:3000/api/topics?id=${id}`, {
+          method: "DELETE",
+        });
+
+        if (response.ok) {
+          console.log("Topic deleted successfully");
+          ruter.refresh();
+        } else {
+          console.error("Failed to delete topic");
+        }
+      } catch (error) {
+        console.error("Error while deleting topic:", error);
+      }
+    }
+  };
+
   return (
-    <button className='text-red-400'>
+    <button onClick={removeTopic} className='text-red-400'>
         <HiOutlineTrash size={24}/>
     </button>
   )

@@ -1,11 +1,13 @@
 "use client"
 
 import { useState } from "react"
-
+import { useRouter } from "next/navigation";
 
 const page = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+  const router = useRouter();
 
   const handleSubmit = async () => {
 
@@ -21,8 +23,12 @@ const page = () => {
           "Content-type": "application/json",
         },
         body: JSON.stringify({ title, description })
-      })
-    } catch (error) {}
+      });
+
+        router.push("/");
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
