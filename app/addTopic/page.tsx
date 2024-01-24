@@ -7,7 +7,7 @@ const page = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const router = useRouter();
+  const router = useRouter()
 
   const handleSubmit = async () => {
 
@@ -25,7 +25,10 @@ const page = () => {
         body: JSON.stringify({ title, description })
       });
 
+      if (res.ok) {
         router.push("/");
+      }
+
     } catch (error) {
       console.log(error);
     }

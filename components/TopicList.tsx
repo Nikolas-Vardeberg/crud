@@ -33,7 +33,7 @@ const TopicList  = async () => {
     return (
         <>
             {topics.map((t) => (
-                <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start">
+                <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start bg-white ">
                     <div>
                         <h2 className="font-bold text-2xl">{t.title}</h2>
                         <div>{t.description}</div>

@@ -1,11 +1,32 @@
 import Link from 'next/link'
 import React from 'react'
+import MaxWidthWrapper from './MaxWidthWrapper'
+
+import { ArrowRight } from "lucide-react"
+import { buttonVariants } from './ui/button'
 
 const NavBar = () => {
   return (
-    <nav className='flex justify-between items-center bg-slate-800 px-8 py-3'>
-        <Link className='text-white font-bold' href="/">Nikolas</Link>
-        <Link className='bg-white p-2' href="/addTopic">Add Topic</Link>
+    <nav className="sticky h-14 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all">
+      <MaxWidthWrapper>
+        <div className="flex h-14 items-center justify-between border-b border-zinc-200">
+                <Link href="/" className="flex z-40 font-semibold">
+                    <span>Nikolas.</span>
+                </Link>
+
+                {/* */}
+                <div className="hidden items-center space-x-4 sm:flex">
+                    <>
+                        <Link href="/addTopic"  className={buttonVariants({
+                              size: "sm",
+                              variant: "outline",
+                            })}>
+                            Add Topic <ArrowRight className="ml-1.5 h-5 w-5"/>
+                        </Link>
+                    </>
+                </div>
+            </div>
+      </MaxWidthWrapper>
     </nav>
   )
 }
