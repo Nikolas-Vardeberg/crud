@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react";
+import { Button, buttonVariants } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 const EditTopicForm = ({ id, title, description }) => {
 
@@ -30,24 +32,28 @@ const EditTopicForm = ({ id, title, description }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
-      <input
-        onChange={(e) => setNewTitle(e.target.value)}
-        value={newTitle}
-        className='border border-slate-500 px-8 py-2'
-        type='text'
-        placeholder='Topic Title'
-      />
+    <div className="m-8">
+      <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
+        <input
+          onChange={(e) => setNewTitle(e.target.value)}
+          value={newTitle}
+          className='border border-slate-300 p-2.5 outline-none rounded-md'
+          type='text'
+          placeholder='Topic Title'
+        />
 
-    <input
-        onChange={(e) => setNewDescription(e.target.value)}
-        value={newDescription}
-        className='border border-slate-500 px-8 py-2'
-        type='text'
-        placeholder='Topic Description'
-      />
-      <button className='bg-green-600 font-bold text-white py-3 px-6 w-fit'>Update Topic</button>
-    </form>
+      <input
+          onChange={(e) => setNewDescription(e.target.value)}
+          value={newDescription}
+          className='border border-slate-300 p-2.5 outline-none rounded-md'
+          type='text'
+          placeholder='Topic Description'
+        />
+        <Button type="submit" className={cn(buttonVariants({variant: "default" }), "w-fit bg-black text-white font-bold")}>
+          Update Topic
+        </Button>
+      </form>
+    </div>
   )
 }
 

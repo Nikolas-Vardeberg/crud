@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { HiOutlineTrash } from 'react-icons/hi'
+import { buttonVariants } from './ui/button'
 
 const RemoveBtn: React.FC<{ id: string }> = ({ id }) => {
 
@@ -23,8 +24,8 @@ const RemoveBtn: React.FC<{ id: string }> = ({ id }) => {
   };
 
   return (
-    <button onClick={removeTopic} className='text-red-400'>
-        <HiOutlineTrash size={24}/>
+    <button onClick={removeTopic} className={`${buttonVariants({ variant: "outline" })} text-red-400`}>
+      Delete
     </button>
   )
 }

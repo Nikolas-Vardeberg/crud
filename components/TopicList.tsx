@@ -1,6 +1,7 @@
 import Link from "next/link";
 import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from 'react-icons/hi'
+import { buttonVariants } from "./ui/button";
 
 const getTopics = async (): Promise<{ topics: Topic[] }> => {
     try {
@@ -33,19 +34,21 @@ const TopicList  = async () => {
     return (
         <>
             {topics.map((t) => (
-                <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start bg-white ">
-                    <div>
-                        <h2 className="font-bold text-2xl">{t.title}</h2>
-                        <div>{t.description}</div>
-                    </div>
-
-                    <div className="flex gap-2">
-                        <RemoveBtn id={t._id} />
-                        <Link href={`/editTopic/${t._id}`}>
-                            <HiPencilAlt size={24}/>
-                        </Link>
-                    </div>
+              <div className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start bg-white mx-auto">
+                <div>
+                    <h2 className="font-bold text-2xl">{t.title}</h2>
+                    <div className="text-gray-500">{t.description}</div>
                 </div>
+          
+              <div className="flex gap-2">
+                  <RemoveBtn id={t._id}/>
+                  <Link href={`/editTopic/${t._id}`} className={buttonVariants({variant:"outline"})}>
+                      Update
+                  </Link>
+              </div>
+          </div>
+          
+            
             ))}
         </>
     );

@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const page = () => {
   const [title, setTitle] = useState("");
@@ -35,24 +37,29 @@ const page = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
-      <input
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
-        className='border border-slate-500 px-8 py-2'
-        type='text'
-        placeholder='Topic Title'
-      />
+    <div className="m-8">
+      <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
+        <input
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+          className='border border-slate-300 p-2.5 outline-none rounded-md'
+          type='text'
+          placeholder='Topic Title'
+        />
 
-    <input
-        onChange={(e) => setDescription(e.target.value)}
-        value={description}
-        className='border border-slate-500 px-8 py-2'
-        type='text'
-        placeholder='Topic Description'
-      />
-      <button type="submit" className='bg-green-600 font-bold text-white py-3 px-6 w-fit'>Add Topic</button>
-    </form>
+      <input
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
+          className='border border-slate-300 p-2.5 outline-none rounded-md'
+          type='text'
+          placeholder='Topic Description'
+        />
+        <Button type="submit" className={cn(buttonVariants({variant: "default" }), "w-fit bg-black text-white font-bold")}>
+          Add Topic
+        </Button>
+
+      </form>
+    </div>
   )
 }
 
