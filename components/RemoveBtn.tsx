@@ -26,6 +26,7 @@ const RemoveBtn: React.FC<{ id: string }> = ({ id }) => {
   return (
     <button onClick={removeTopic} className={`${buttonVariants({ variant: "outline" })} text-red-400`}>
       Delete
+      <HiOutlineTrash className="inline-block h-4 w-4 ml-1" />
     </button>
   )
 }
